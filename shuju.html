@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0618">
+<title>从巅峰到断崖 · 恋与深空 2025 vs 2026 数据对比</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  :root{
+    --gold-1:#fcd34d; --gold-2:#f59e0b;
+    --purple-1:#a78bfa; --purple-2:#6366f1;
+    --pink:#f0abfc; --red:#f87171; --green:#4ade80;
+    --cyan:#22d3ee;
+    --bg-0:#0a0618; --bg-1:#1a1035; --bg-2:#0d0820;
+    --glass:rgba(255,255,255,.04);
+    --line:rgba(167,139,250,.25);
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --cursor-earth: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'><defs><radialGradient id='g' cx='35%25' cy='30%25'><stop offset='0%25' stop-color='%23a78bfa'/><stop offset='60%25' stop-color='%236366f1'/><stop offset='100%25' stop-color='%230d0820'/></radialGradient></defs><circle cx='18' cy='18' r='14' fill='url(%23g)' stroke='%23f0abfc' stroke-width='1.4'/><ellipse cx='18' cy='18' rx='14' ry='5.5' fill='none' stroke='%23f0abfc' stroke-width='0.9' opacity='0.75'/><ellipse cx='18' cy='18' rx='5.5' ry='14' fill='none' stroke='%23f0abfc' stroke-width='0.9' opacity='0.55'/><path d='M6 12 Q14 16 30 13' fill='none' stroke='%23fcd34d' stroke-width='0.9' opacity='0.85'/><path d='M7 24 Q18 21 29 25' fill='none' stroke='%23fcd34d' stroke-width='0.9' opacity='0.85'/><circle cx='28' cy='9' r='2.4' fill='%23fcd34d'><animate attributeName='opacity' values='1;0.3;1' dur='1.8s' repeatCount='indefinite'/></circle></svg>") 6 6, auto;
+  --cursor-earth-pointer: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36'><defs><radialGradient id='g' cx='35%25' cy='30%25'><stop offset='0%25' stop-color='%23fcd34d'/><stop offset='60%25' stop-color='%23f59e0b'/><stop offset='100%25' stop-color='%230d0820'/></radialGradient></defs><circle cx='18' cy='18' r='15' fill='url(%23g)' stroke='%23fff' stroke-width='1.6'/><ellipse cx='18' cy='18' rx='15' ry='6' fill='none' stroke='%23fff' stroke-width='1' opacity='0.85'/><ellipse cx='18' cy='18' rx='6' ry='15' fill='none' stroke='%23fff' stroke-width='1' opacity='0.6'/><circle cx='28' cy='8' r='3' fill='%23fff'/></svg>") 6 6, pointer;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+    background:linear-gradient(160deg,var(--bg-0) 0%,var(--bg-1) 45%,var(--bg-2) 100%);
+    background-attachment:fixed;color:#e8e3ff;overflow-x:hidden;min-height:100vh;
+    cursor:var(--cursor-earth);
+    padding-bottom:var(--safe-bottom);
+  }
+  a, button, .toggle-btn, .nav a, .region-item, .tl-item, .live-cell{cursor:var(--cursor-earth-pointer);}
+  #stars{position:fixed;inset:0;z-index:0;pointer-events:none;}
+  #cursor-canvas{position:fixed;inset:0;z-index:998;pointer-events:none;}
+  #progress{position:fixed;top:0;left:0;height:3px;width:0%;
+    background:linear-gradient(90deg,var(--purple-1),var(--pink),var(--gold-1));
+    z-index:999;box-shadow:0 0 12px var(--pink);transition:width .1s linear;}
+  .wrap{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 20px 80px;}
+
+  .nav{position:sticky;top:0;z-index:100;display:flex;gap:4px;overflow-x:auto;
+    padding:10px 16px;padding-top:calc(10px + var(--safe-top));
+    background:rgba(10,6,24,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    margin-bottom:24px;}
+  .nav::-webkit-scrollbar{display:none;}
+  .nav a{flex-shrink:0;padding:7px 14px;border-radius:999px;font-size:12.5px;
+    color:#a99fd0;text-decoration:none;border:1px solid transparent;transition:.3s;white-space:nowrap;position:relative;}
+  .nav a::after{content:"";position:absolute;left:50%;bottom:-1px;height:2px;width:0;
+    background:linear-gradient(90deg,var(--purple-1),var(--pink));
+    transform:translateX(-50%);transition:width .3s;border-radius:2px;}
+  .nav a:hover,.nav a.active{color:#fff;background:rgba(167,139,250,.15);border-color:var(--line);}
+  .nav a.active::after{width:60%;}
+
+  .hero{position:relative;min-height:78vh;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;
+    border-radius:0 0 40px 40px;overflow:hidden;margin-bottom:32px;}
+  .hero-bg{position:absolute;inset:0;
+    background:url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600&q=80') center/cover;
+    filter:brightness(.42) saturate(1.3);transform:scale(1.08);
+    animation:slowZoom 26s ease-in-out infinite alternate;}
+  @keyframes slowZoom{from{transform:scale(1.08) translateY(0);}to{transform:scale(1.18) translateY(-14px);}}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 50% 40%,rgba(167,139,250,.22),transparent 65%),
+    linear-gradient(to bottom,transparent 55%,var(--bg-0));}
+  .hero-content{position:relative;z-index:3;padding:60px 20px;width:100%;}
+  .hero h1{font-size:clamp(30px,7vw,68px);font-weight:900;letter-spacing:clamp(2px,1.5vw,6px);
+    background:linear-gradient(100deg,#fff 8%,var(--purple-1) 40%,var(--pink) 65%,var(--gold-1) 92%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    background-size:220% auto;animation:shine 6s linear infinite;
+    text-shadow:0 0 56px rgba(167,139,250,.4);line-height:1.15;}
+  @keyframes shine{to{background-position:220% center;}}
+  .hero .divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:20px auto 0;max-width:420px;padding:0 20px;}
+  .hero .divider span{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(167,139,250,.6),transparent);}
+  .hero .divider i{width:6px;height:6px;border-radius:50%;background:var(--gold-1);
+    box-shadow:0 0 12px var(--gold-1);animation:pulse 2s infinite;}
+  .hero p.sub{margin-top:18px;font-size:clamp(11px,2.6vw,17px);letter-spacing:clamp(1px,.8vw,4px);color:#c9bcff;padding:0 16px;line-height:1.6;}
+  .hero .tagline{margin-top:14px;font-size:11px;color:#8b7fb8;letter-spacing:1px;padding:0 16px;}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px;width:100%;max-width:960px;padding:0 8px;}
+  .kpi{background:var(--glass);border:1px solid var(--line);border-radius:18px;
+    padding:18px 14px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    box-shadow:0 8px 32px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.06);
+    transition:transform .35s,box-shadow .35s;position:relative;overflow:hidden;text-align:center;}
+  .kpi::after{content:"";position:absolute;inset:0;border-radius:18px;
+    background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(167,139,250,.18),transparent 60%);
+    opacity:0;transition:opacity .4s;pointer-events:none;}
+  .kpi:hover::after{opacity:1;}
+  .kpi:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(167,139,250,.3);}
+  .kpi .num{font-family:"DIN Alternate","Bebas Neue",sans-serif;
+    font-size:clamp(20px,4.5vw,30px);font-weight:800;color:var(--gold-1);
+    text-shadow:0 0 22px rgba(252,211,77,.4);display:block;line-height:1.15;}
+  .kpi .num.danger{color:var(--red);text-shadow:0 0 22px rgba(248,113,113,.45);}
+  .kpi .num.purple{color:var(--purple-1);text-shadow:0 0 22px rgba(167,139,250,.5);}
+  .kpi .num.cyan{color:var(--cyan);text-shadow:0 0 22px rgba(34,211,238,.4);}
+  .kpi .label{margin-top:6px;font-size:11px;color:#a99fd0;letter-spacing:.5px;line-height:1.5;}
+  .kpi .delta{margin-top:4px;font-size:11px;color:var(--red);font-weight:600;}
+  .pulse{animation:pulse 2.2s ease-in-out infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+
+  section{margin-bottom:56px;scroll-margin-top:76px;}
+  .sec-title{font-size:clamp(17px,3.5vw,24px);font-weight:700;margin-bottom:6px;
+    display:flex;align-items:center;gap:12px;}
+  .sec-title::before{content:"";width:4px;height:22px;border-radius:3px;
+    background:linear-gradient(var(--purple-1),var(--pink));box-shadow:0 0 12px var(--purple-1);flex-shrink:0;}
+  .sec-desc{font-size:12.5px;color:#9187bd;margin-bottom:20px;letter-spacing:.5px;line-height:1.7;}
+  .card{background:var(--glass);border:1px solid var(--line);border-radius:20px;
+    padding:22px 20px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    box-shadow:0 10px 40px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.05);
+    position:relative;overflow:hidden;transition:box-shadow .4s,border-color .4s;}
+  .card::before{content:"";position:absolute;inset:0;border-radius:20px;pointer-events:none;
+    background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(167,139,250,.10),transparent 45%);
+    opacity:0;transition:opacity .4s;}
+  .card:hover::before{opacity:1;}
+  .card:hover{box-shadow:0 16px 52px rgba(0,0,0,.55),0 0 0 1px rgba(167,139,250,.22);}
+  .chart-box{position:relative;height:360px;width:100%;}
+  .chart-box.small{height:280px;}
+  .chart-box.tiny{height:220px;}
+  .chart-box.mid{height:340px;}
+
+  .legend{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:16px;font-size:12px;color:#b6abdd;}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:middle;}
+
+  .toggle-bar{display:flex;justify-content:flex-end;gap:6px;margin-bottom:14px;flex-wrap:wrap;}
+  .toggle-btn{background:rgba(167,139,250,.1);border:1px solid var(--line);color:#c3b6f5;
+    padding:6px 14px;border-radius:999px;font-size:12px;cursor:pointer;transition:.3s;font-family:inherit;
+    -webkit-appearance:none;appearance:none;}
+  .toggle-btn:hover{background:rgba(167,139,250,.2);}
+  .toggle-btn.active{background:linear-gradient(90deg,var(--purple-2),var(--purple-1));
+    color:#fff;border-color:transparent;box-shadow:0 0 18px rgba(167,139,250,.5);}
+
+  .live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;
+    background:var(--green);box-shadow:0 0 10px var(--green);margin-right:6px;
+    animation:pulse 1.4s ease-in-out infinite;vertical-align:middle;flex-shrink:0;}
+  .live-tag{display:inline-flex;align-items:center;font-size:10.5px;color:var(--green);
+    letter-spacing:1px;padding:3px 10px;border-radius:999px;
+    background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.25);white-space:nowrap;}
+
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+
+  .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .data-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:520px;}
+  .data-table th{text-align:left;padding:10px 8px;color:#9187bd;font-weight:600;
+    border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.5px;white-space:nowrap;}
+  .data-table td{padding:10px 8px;border-bottom:1px solid rgba(167,139,250,.08);color:#d5ccee;}
+  .data-table tr{transition:background .25s;}
+  .data-table tr:hover td{background:rgba(167,139,250,.06);}
+  .data-table .down{color:var(--red);}
+  .data-table .num-cell{font-family:"DIN Alternate",sans-serif;font-weight:700;}
+
+  .timeline{position:relative;padding-left:34px;}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+    background:linear-gradient(var(--gold-1),var(--purple-1),var(--red));border-radius:2px;opacity:.6;}
+  .tl-item{position:relative;margin-bottom:22px;cursor:pointer;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-dot{position:absolute;left:-31px;top:6px;width:14px;height:14px;border-radius:50%;
+    background:var(--purple-1);box-shadow:0 0 0 4px rgba(167,139,250,.18),0 0 16px var(--purple-1);transition:.35s;}
+  .tl-item:hover .tl-dot{transform:scale(1.35);box-shadow:0 0 0 7px rgba(167,139,250,.25),0 0 24px var(--pink);}
+  .tl-dot.gold{background:var(--gold-1);box-shadow:0 0 0 4px rgba(252,211,77,.18),0 0 16px var(--gold-1);}
+  .tl-dot.red{background:var(--red);box-shadow:0 0 0 4px rgba(248,113,113,.2),0 0 18px var(--red);animation:pulse 1.8s infinite;}
+  .tl-dot.cyan{background:var(--cyan);box-shadow:0 0 0 4px rgba(34,211,238,.18),0 0 16px var(--cyan);}
+  .tl-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .tl-date{font-size:11.5px;color:var(--purple-1);letter-spacing:1px;font-weight:600;flex-shrink:0;}
+  .tl-title{font-size:14.5px;font-weight:700;color:#efe9ff;}
+  .tl-body{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .35s,margin .35s;
+    opacity:0;font-size:12.5px;color:#a99fd0;line-height:1.75;margin-top:0;}
+  .tl-item.open .tl-body{max-height:340px;opacity:1;margin-top:8px;}
+
+  .event-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:18px;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
+  .event-card::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(248,113,113,.12),transparent 55%);
+    opacity:0;transition:opacity .4s;}
+  .event-card:hover::after{opacity:1;}
+  .event-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.5);}
+  .event-card .ev-tag{display:inline-block;padding:3px 10px;border-radius:999px;font-size:10.5px;
+    font-weight:700;letter-spacing:.5px;margin-bottom:10px;}
+  .event-card .ev-tag.red{background:rgba(248,113,113,.15);color:var(--red);}
+  .event-card .ev-tag.gold{background:rgba(252,211,77,.15);color:var(--gold-1);}
+  .event-card .ev-tag.cyan{background:rgba(34,211,238,.12);color:var(--cyan);}
+  .event-card h4{font-size:14px;color:#efe9ff;margin-bottom:8px;}
+  .event-card p{font-size:12px;color:#a99fd0;line-height:1.75;}
+  .event-card .ev-stat{margin-top:12px;padding-top:12px;border-top:1px solid rgba(167,139,250,.12);
+    font-size:11.5px;color:#8b7fb8;}
+  .event-card .ev-stat b{color:var(--red);}
+
+  .donut-wrap{position:relative;}
+  .donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    text-align:center;pointer-events:none;transition:transform .4s,opacity .4s;}
+  .donut-center .dc-num{font-family:"DIN Alternate",sans-serif;font-size:clamp(20px,4vw,26px);font-weight:800;
+    color:var(--gold-1);text-shadow:0 0 18px rgba(252,211,77,.5);line-height:1;}
+  .donut-center .dc-label{font-size:10.5px;color:#a99fd0;margin-top:4px;letter-spacing:.5px;}
+
+  .region-legend{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;}
+  .region-item{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;
+    background:rgba(167,139,250,.05);border:1px solid transparent;cursor:pointer;transition:.3s;font-size:12px;}
+  .region-item:hover,.region-item.active{background:rgba(167,139,250,.14);border-color:var(--line);transform:translateX(3px);}
+  .region-item .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;box-shadow:0 0 10px currentColor;}
+  .region-item .rname{flex:1;color:#d5ccee;}
+  .region-item .rval{font-family:"DIN Alternate",sans-serif;font-weight:700;color:#c3b6f5;}
+
+  .live-panel{
+    background:linear-gradient(150deg,rgba(74,222,128,.06),rgba(167,139,250,.04));
+    border:1px solid rgba(74,222,128,.28);
+    box-shadow:0 10px 40px rgba(0,0,0,.45),0 0 0 1px rgba(74,222,128,.08),inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .live-panel::before{background:radial-gradient(600px circle at var(--mx,50%) var(--my,50%),rgba(74,222,128,.10),transparent 45%);}
+  .live-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px;}
+  .live-title{font-size:14px;font-weight:700;color:#e8e3ff;display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .live-meta{display:flex;align-items:center;gap:14px;font-size:11px;color:#8b7fb8;flex-wrap:wrap;}
+  .live-meta b{color:var(--green);font-family:"DIN Alternate",sans-serif;font-weight:700;}
+
+  .live-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px;}
+  .live-cell{
+    background:rgba(10,6,24,.45);border:1px solid rgba(74,222,128,.16);border-radius:14px;
+    padding:14px 12px;position:relative;overflow:hidden;transition:transform .3s,border-color .3s;
+  }
+  .live-cell:hover{transform:translateY(-3px);border-color:rgba(74,222,128,.4);}
+  .live-cell::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(74,222,128,.08),transparent);
+    animation:sweep 3.2s linear infinite;}
+  @keyframes sweep{0%{left:-100%;}100%{left:100%;}}
+  .live-cell .lc-label{font-size:10.5px;color:#8b7fb8;letter-spacing:.5px;margin-bottom:6px;display:flex;align-items:center;gap:6px;}
+  .live-cell .lc-value{font-family:"DIN Alternate",sans-serif;font-size:clamp(18px,3.5vw,22px);font-weight:800;
+    color:#e8e3ff;line-height:1.1;transition:color .3s;}
+  .live-cell .lc-value.flash-up{color:var(--green);}
+  .live-cell .lc-value.flash-down{color:var(--red);}
+  .live-cell .lc-sub{font-size:10.5px;margin-top:5px;color:#6f6699;display:flex;align-items:center;gap:5px;}
+  .lc-arrow{font-size:9px;}
+
+  .live-spark{height:80px;position:relative;margin-top:4px;}
+  .live-spark-label{font-size:11px;color:#8b7fb8;margin-bottom:6px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+  .live-spark-label b{color:var(--green);font-family:"DIN Alternate",sans-serif;}
+
+  .live-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+    margin-top:16px;padding-top:14px;border-top:1px solid rgba(74,222,128,.12);font-size:11px;color:#6f6699;}
+  .live-foot .src{display:flex;align-items:center;gap:6px;}
+
+  .conclusion{border-left:3px solid var(--pink);padding:18px 22px;border-radius:0 16px 16px 0;
+    background:linear-gradient(90deg,rgba(240,171,252,.09),transparent);
+    font-size:14px;line-height:1.85;color:#ded5ff;}
+  .conclusion b{color:var(--gold-1);}
+  .source{margin-top:20px;font-size:11px;color:#6f6699;line-height:1.7;text-align:center;}
+
+  .reveal{opacity:0;transform:translateY(34px);
+    transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1);}
+  .reveal.in{opacity:1;transform:none;}
+
+  @media(max-width:1024px){
+    .live-grid{grid-template-columns:repeat(2,1fr);}
+    .grid-3{grid-template-columns:1fr 1fr;}
+  }
+
+  @media(max-width:768px){
+    body{cursor:auto;}
+    a,button,.toggle-btn,.nav a,.region-item,.tl-item,.live-cell{cursor:pointer;}
+    .wrap{padding:0 12px 60px;}
+    section{margin-bottom:40px;scroll-margin-top:70px;}
+    .card{padding:16px 14px;border-radius:16px;}
+
+    .nav{padding:8px 10px;padding-top:calc(8px + var(--safe-top));margin-bottom:20px;gap:2px;}
+    .nav a{padding:6px 12px;font-size:11.5px;}
+
+    .hero{min-height:auto;border-radius:0 0 28px 28px;margin-bottom:24px;}
+    .hero-content{padding:44px 14px 28px;}
+    .hero h1{letter-spacing:2px;}
+    .hero .divider{margin-top:16px;}
+    .hero p.sub{letter-spacing:1px;margin-top:14px;}
+
+    .kpis{grid-template-columns:repeat(2,1fr);gap:10px;margin-top:26px;padding:0;}
+    .kpi{padding:14px 10px;border-radius:14px;}
+    .kpi .label{font-size:10px;}
+    .kpi .delta{font-size:10px;}
+
+    .sec-title{gap:8px;}
+    .sec-title::before{height:18px;}
+    .sec-desc{font-size:11.5px;margin-bottom:16px;}
+
+    .chart-box{height:280px;}
+    .chart-box.small{height:230px;}
+    .chart-box.mid{height:260px;}
+    .chart-box.tiny{height:200px;}
+
+    .legend{gap:12px;font-size:11px;}
+    .toggle-bar{gap:5px;margin-bottom:12px;}
+    .toggle-btn{padding:5px 11px;font-size:11px;}
+
+    .grid-2,.grid-3,.live-grid{grid-template-columns:1fr;gap:14px;}
+    .live-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+    .live-cell{padding:12px 10px;}
+    .live-cell .lc-label{font-size:9.5px;}
+    .live-header{margin-bottom:14px;}
+    .live-title{font-size:13px;gap:8px;}
+    .live-meta{font-size:10.5px;gap:10px;}
+    .live-spark{height:70px;}
+
+    .timeline{padding-left:28px;}
+    .tl-dot{left:-28px;width:12px;height:12px;}
+    .timeline::before{left:6px;}
+    .tl-title{font-size:13.5px;}
+    .tl-date{font-size:10.5px;}
+    .tl-body{font-size:12px;}
+
+    .event-card{padding:14px;}
+    .event-card p{font-size:11.5px;}
+
+    .donut-center .dc-num{font-size:22px;}
+    .donut-center .dc-label{font-size:9.5px;}
+
+    .region-legend{grid-template-columns:1fr 1fr;gap:6px;}
+    .region-item{padding:7px 8px;font-size:11px;}
+
+    .conclusion{padding:14px 16px;font-size:13px;line-height:1.8;}
+    .source{font-size:10px;}
+  }
+
+  @media(max-width:420px){
+    .wrap{padding:0 10px 50px;}
+    .card{padding:14px 12px;}
+    .hero-content{padding:38px 12px 24px;}
+    .hero .tagline{font-size:10px;}
+    .kpis{gap:8px;}
+    .kpi{padding:12px 8px;}
+    .kpi .num{font-size:18px;}
+    .kpi .label{font-size:9.5px;}
+    .live-grid{gap:8px;}
+    .live-cell{padding:10px 8px;}
+    .live-cell .lc-value{font-size:16px;}
+    .chart-box{height:250px;}
+    .chart-box.small{height:210px;}
+    .chart-box.mid{height:240px;}
+    .toggle-btn{padding:4px 10px;font-size:10.5px;}
+    .timeline{padding-left:24px;}
+    .tl-dot{left:-24px;width:11px;height:11px;}
+    .timeline::before{left:5px;}
+    .tl-title{font-size:13px;}
+    .tl-body{font-size:11.5px;}
+  }
+
+  @media(max-height:500px) and (orientation:landscape){
+    .hero{min-height:auto;padding:30px 0;}
+    .hero-content{padding:30px 20px;}
+    .kpis{grid-template-columns:repeat(4,1fr);}
+    .chart-box{height:240px;}
+  }
+
+  @media(prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;
+      transition-duration:.01ms !important;scroll-behavior:auto !important;}
+    .hero-bg{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<canvas id="stars"></canvas>
+<canvas id="cursor-canvas"></canvas>
+
+<nav class="nav" id="nav">
+  <a href="#overview" class="active">总览</a>
+  <a href="#live">实时数据</a>
+  <a href="#flow">数据对比</a>
+  <a href="#yoy">同比趋势</a>
+  <a href="#platform">平台分布</a>
+  <a href="#timeline">事件时间轴</a>
+  <a href="#deepdive">事件复盘</a>
+  <a href="#social">社交声量</a>
+  <a href="#annual">全年趋势</a>
+  <a href="#conclusion">结论</a>
+</nav>
+
+<header class="hero" id="overview">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>从巅峰到断崖</h1>
+    <div class="divider"><span></span><i></i><span></span></div>
+    <p class="sub">恋与深空 &nbsp;·&nbsp; 2025 VS 2026 &nbsp;·&nbsp; 数据对比</p>
+    <p class="tagline">第三方机构估算 · 仅供趋势参考</p>
+    <div class="kpis">
+      <div class="kpi">
+        <span class="num purple" data-count="1.46" data-dec="2" data-suffix=" 亿">0</span>
+        <div class="label">2026 前八月全球总流水（美元）</div>
+        <div class="delta">同比 −43.54%</div>
+      </div>
+      <div class="kpi">
+        <span class="num" data-count="8" data-dec="0" data-prefix="约 " data-suffix=" 亿">0</span>
+        <div class="label">同比少赚（人民币）</div>
+        <div class="delta" style="color:var(--gold-1)">较去年同期蒸发</div>
+      </div>
+      <div class="kpi">
+        <span class="num danger pulse" data-count="85" data-dec="0" data-prefix="−" data-suffix="%">0</span>
+        <div class="label">7 月最大单月跌幅</div>
+        <div class="delta">敖尹事件后断崖</div>
+      </div>
+      <div class="kpi">
+        <span class="num cyan" data-count="115" data-dec="0" data-prefix="−" data-suffix=" 万">0</span>
+        <div class="label">全平台掉粉（6/22–6/29）</div>
+        <div class="delta" style="color:var(--cyan)">小红书 · 微博 · 抖音</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- ===== 实时数据更新 ===== -->
+  <section class="reveal" id="live">
+    <h2 class="sec-title">实时数据更新</h2>
+    <p class="sec-desc">模拟实时数据流 · 数字持续跳动 · 每 3 秒刷新一次</p>
+
+    <div class="card live-panel">
+      <div class="live-header">
+        <div class="live-title">
+          <span class="live-tag"><span class="live-dot"></span>LIVE</span>
+          数据监控中
+        </div>
+        <div class="live-meta">
+          <span>最后更新 <b id="liveTime">--:--:--</b></span>
+          <span>下次刷新 <b id="liveCountdown">3</b>s</span>
+        </div>
+      </div>
+
+      <div class="live-grid">
+        <div class="live-cell">
+          <div class="lc-label">今日流水估算（美元）</div>
+          <div class="lc-value" id="lv1">0</div>
+          <div class="lc-sub" id="ls1"><span class="lc-arrow">▲</span> 较昨日 +0.0%</div>
+        </div>
+        <div class="live-cell">
+          <div class="lc-label">今日新增下载</div>
+          <div class="lc-value" id="lv2">0</div>
+          <div class="lc-sub" id="ls2"><span class="lc-arrow">▲</span> 较昨日 +0.0%</div>
+        </div>
+        <div class="live-cell">
+          <div class="lc-label">国服畅销榜排名</div>
+          <div class="lc-value" id="lv3">—</div>
+          <div class="lc-sub" id="ls3"><span class="lc-arrow">▲</span> 较昨日 +0</div>
+        </div>
+        <div class="live-cell">
+          <div class="lc-label">社区讨论热度</div>
+          <div class="lc-value" id="lv4">0</div>
+          <div class="lc-sub" id="ls4"><span class="lc-arrow">▲</span> 较昨日 +0.0%</div>
+        </div>
+      </div>
+
+      <div class="live-spark-label">
+        <span>今日流水实时走势（美元 / 小时）</span>
+        <b id="sparkNow">—</b>
+      </div>
+      <div class="live-spark"><canvas id="sparkChart"></canvas></div>
+
+      <div class="live-foot">
+        <div class="src"><span class="live-dot"></span>数据为演示用模拟值 · 非真实实时接口</div>
+        <div>采样频率 3s · 数据点 <b id="sparkCount">0</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 数据对比 ===== -->
+  <section class="reveal" id="flow">
+    <h2 class="sec-title">月度数据对比</h2>
+    <p class="sec-desc">金色 = 2025 年 &nbsp;|&nbsp; 紫色 = 2026 年 &nbsp;·&nbsp; 单位：人民币亿元 &nbsp;·&nbsp; 点击切换美元口径</p>
+
+    <div class="card">
+      <div class="toggle-bar">
+        <button class="toggle-btn active" data-unit="cny">人民币</button>
+        <button class="toggle-btn" data-unit="usd">美元</button>
+      </div>
+      <div class="chart-box"><canvas id="barChart"></canvas></div>
+      <div class="legend">
+        <span><i style="background:linear-gradient(135deg,#fcd34d,#f59e0b)"></i>2025 年</span>
+        <span><i style="background:linear-gradient(135deg,#a78bfa,#6366f1)"></i>2026 年</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+        <h4 style="font-size:13.5px;color:#c3b6f5;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          流水走势曲线
+          <span class="live-tag"><span class="live-dot"></span>LIVE 绘制中</span>
+        </h4>
+        <div class="toggle-bar" style="margin-bottom:0;">
+          <button class="toggle-btn active" data-mode="line">折线</button>
+          <button class="toggle-btn" data-mode="area">面积</button>
+          <button class="toggle-btn" data-mode="smooth">平滑</button>
+          <button class="toggle-btn" id="replayBtn">↻ 重播</button>
+        </div>
+      </div>
+      <div class="chart-box mid"><canvas id="trendChart"></canvas></div>
+      <div class="legend" style="margin-top:14px;">
+        <span><i style="background:#fcd34d"></i>2025 年</span>
+        <span><i style="background:#a78bfa"></i>2026 年</span>
+        <span style="color:#6f6699;font-size:11px;">曲线从左往右实时绘制 · 虚线为数据缺失区间</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>月份</th><th>2025 年（亿元）</th><th>2026 年（亿元）</th><th>同比变化</th><th>关键背景</th></tr></thead>
+          <tbody>
+            <tr><td>3 月</td><td class="num-cell">4.45</td><td class="num-cell" style="color:#6f6699;">—</td><td>—</td><td>夏以昼日卡，登顶畅销榜，历史次高</td></tr>
+            <tr><td>4 月</td><td class="num-cell">3.28</td><td class="num-cell">2.55</td><td class="down">−22%</td><td>复刻卡池，今年以来第二高</td></tr>
+            <tr><td>5 月</td><td class="num-cell">3.00*</td><td class="num-cell">1.50</td><td class="down">约 −50%</td><td>海外强拉动 vs 海外增长但盘子缩小</td></tr>
+            <tr><td>6 月</td><td class="num-cell">3.27</td><td class="num-cell">2.22</td><td class="down">−32%</td><td>双榜登顶 vs 敖尹事件发酵</td></tr>
+            <tr><td>7 月</td><td class="num-cell">2.80</td><td class="num-cell">0.74</td><td class="down">−74% ~ −85%</td><td>4.0 版本峰值 vs 停氪退游，国服下滑 88%</td></tr>
+            <tr><td>8 月</td><td class="num-cell">1.87</td><td class="num-cell">1.28</td><td class="down">−32%</td><td>新限定 Memories 环比回升 72%，但仍未恢复</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:10px;font-size:11px;color:#6f6699;">* 5 月 2025 年数据为估算占位值，用于趋势对比。</p>
+    </div>
+  </section>
+
+  <!-- ===== 同比趋势 ===== -->
+  <section class="reveal" id="yoy">
+    <h2 class="sec-title">同比变化趋势</h2>
+    <p class="sec-desc">2026 年各月相较去年同期的涨跌幅度（%） &nbsp;·&nbsp; 7 月取实际全球口径 −85%</p>
+    <div class="card">
+      <div class="chart-box small"><canvas id="lineChart"></canvas></div>
+    </div>
+  </section>
+
+  <!-- ===== 平台分布 ===== -->
+  <section class="reveal" id="platform">
+    <h2 class="sec-title">平台与地区分布</h2>
+    <p class="sec-desc">国服仍是基本盘，海外市场贡献不容忽视 &nbsp;·&nbsp; 点击图例可高亮对应扇区</p>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-size:14px;margin-bottom:14px;color:#c3b6f5;">全球收入地区占比</h4>
+        <div class="donut-wrap">
+          <div class="chart-box mid" style="height:260px;"><canvas id="regionChart"></canvas></div>
+          <div class="donut-center">
+            <div class="dc-num" id="dcNum">60%</div>
+            <div class="dc-label" id="dcLabel">中国</div>
+          </div>
+        </div>
+        <div class="region-legend" id="regionLegend">
+          <div class="region-item active" data-i="0"><span class="dot" style="background:#a78bfa;color:#a78bfa;"></span><span class="rname">中国</span><span class="rval">60%</span></div>
+          <div class="region-item" data-i="1"><span class="dot" style="background:#22d3ee;color:#22d3ee;"></span><span class="rname">美国</span><span class="rval">13%</span></div>
+          <div class="region-item" data-i="2"><span class="dot" style="background:#fcd34d;color:#fcd34d;"></span><span class="rname">日本</span><span class="rval">9%</span></div>
+          <div class="region-item" data-i="3"><span class="dot" style="background:#f0abfc;color:#f0abfc;"></span><span class="rname">其他</span><span class="rval">18%</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h4 style="font-size:14px;margin-bottom:14px;color:#c3b6f5;">2025 全球累计里程碑</h4>
+        <div style="font-size:13px;line-height:2;color:#d5ccee;">
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(167,139,250,.08);gap:10px;">
+            <span>全球累计收入（2025.9）</span><b style="color:var(--gold-1);font-size:16px;">7.5 亿美元</b>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(167,139,250,.08);gap:10px;">
+            <span>折合人民币</span><b style="color:var(--gold-1);">约 53 亿元</b>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(167,139,250,.08);gap:10px;">
+            <span>国服贡献</span><b>4.538 亿美元</b>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(167,139,250,.08);gap:10px;">
+            <span>美国市场</span><b>13%</b>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:8px 0;gap:10px;">
+            <span>日本市场</span><b>9%</b>
+          </div>
+        </div>
+        <p style="margin-top:12px;font-size:11px;color:#6f6699;">数据来源：PocketGamer.biz / 九游</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 时间轴 ===== -->
+  <section class="reveal" id="timeline">
+    <h2 class="sec-title">关键事件时间轴</h2>
+    <p class="sec-desc">点击任意节点展开详情 &nbsp;·&nbsp; 2025 巅峰 → 2026 断崖</p>
+    <div class="card">
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-head"><span class="tl-date">2025 · 01</span><span class="tl-title">夏以昼上线 · 御三家格局稳定</span></div>
+          <div class="tl-body">夏以昼作为第四位男主登场，玩家期待值拉满。官方同步公布御三家主线更新排期，社区信心处于高点。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-head"><span class="tl-date">2025 · 03</span><span class="tl-title">夏以昼日卡 · 登顶畅销榜</span></div>
+          <div class="tl-body">单月流水约 4.45 亿元人民币，为历史次高月份，推动 2025 全年爆发基调。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot gold"></div>
+          <div class="tl-head"><span class="tl-date">2025 · 07</span><span class="tl-title">4.0 版本 · 全球峰值</span></div>
+          <div class="tl-body">全球单月流水约 3918 万美元，折合人民币约 2.8 亿元，为公测以来高点之一。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot cyan"></div>
+          <div class="tl-head"><span class="tl-date">2025 · 10</span><span class="tl-title">万达影城联动 · 线下情绪消费</span></div>
+          <div class="tl-body">《恋与深空》× 万达电影“光影之间，爱在深空”全国联动，五角场万达影城设置五位男主专属场景，联名周边上线时小程序一度瘫痪。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-head"><span class="tl-date">2026 · 06/22</span><span class="tl-title">敖尹空降 · 舆情全面崩盘</span></div>
+          <div class="tl-body">突击官宣第六位男主“敖尹”，欧美狼人建模与原有东亚画风割裂，1 小时评论破 16 万。玩家发起停氪、开发票、退游行动，应用商店评分跌至 1.7–1.8。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-head"><span class="tl-date">2026 · 06/28</span><span class="tl-title">A-0731 档案 · 触碰历史底线</span></div>
+          <div class="tl-body">玩家在剧情中发现人体试药档案编号“A-0731”，关联侵华日军 731 部队。叠加“引狼入室”台词争议，官方两次致歉均未平息，全平台累计掉粉超 115 万。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot red"></div>
+          <div class="tl-head"><span class="tl-date">2026 · 07</span><span class="tl-title">流水脚斩 · 公测以来最低</span></div>
+          <div class="tl-body">单月流水跌至约 1030 万美元，国服下滑 88%，实际全球同比跌幅 82%–85%。官方停更一个月，退出 BW 和 ChinaJoy 展会。</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-head"><span class="tl-date">2026 · 08/03</span><span class="tl-title">夏以昼新卡 PV · “救火”复出</span></div>
+          <div class="tl-body">官方放出夏以昼新五星思念「夏意涌向」PV，主打校园纯爱，被解读为标准危机公关操作。但 PV 发布后被质疑疑似 AI 参与制作，玩家信任进一步受挫。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 事件深度复盘 ===== -->
+  <section class="reveal" id="deepdive">
+    <h2 class="sec-title">事件深度复盘</h2>
+    <p class="sec-desc">三个争议点如何叠加成一场信任危机</p>
+    <div class="grid-3">
+      <div class="event-card">
+        <span class="ev-tag red">争议一 · 角色空降</span>
+        <h4>“引狼入室”与画风割裂</h4>
+        <p>敖尹以狼人首领身份空降为第六位可攻略男主，金发魁梧的欧美写实画风与原有五位东亚精致建模形成强烈反差，玩家评价“不在一个图层、别的游戏反派乱入乙游”。剧情中狼人深夜翻窗闯入独居女主住宅，台词“引狼入室有什么不好”被批“把私闯民宅包装成浪漫桥段”。</p>
+        <div class="ev-stat">角色概念 PV 发布 1 小时评论破 <b>16 万</b></div>
+      </div>
+      <div class="event-card">
+        <span class="ev-tag red">争议二 · 产能分配</span>
+        <h4>500 天不更新，却有产能做新男主</h4>
+        <p>夏以昼主线剧情超过 <b>500 天</b>未更新，官方却将产能转移至敖尹的内容制作。常驻卡池从 5 人扩容至 6 人，老角色本命卡抽取概率被直接稀释。玩家质问：“你说产能不足，500 天不更新老人，为什么突然就有产能做一个全新男主？”</p>
+        <div class="ev-stat">消费保平台集体投诉参与人次超 <b>4 万</b></div>
+      </div>
+      <div class="event-card">
+        <span class="ev-tag red">争议三 · 历史底线</span>
+        <h4>A-0731 · 压倒信任的最后一根稻草</h4>
+        <p>剧情中人体试药实验档案编号“A-0731”，直接关联侵华日军 731 部队。记录员名“严颂”被指谐音甲级战犯岩松义雄。官方解释为“无实际意义的虚构日期占位符”，但玩家认为这是从文案到审核整条线的系统性失误。</p>
+        <div class="ev-stat">官方致歉博文评论近 <b>35 万</b>，高赞几乎全为不满</div>
+      </div>
+    </div>
+    <div class="card" style="margin-top:18px;">
+      <h4 style="font-size:13.5px;color:#c3b6f5;margin-bottom:12px;">玩家行动矩阵</h4>
+      <div class="grid-3" style="gap:12px;">
+        <div style="text-align:center;padding:14px;background:rgba(248,113,113,.06);border-radius:12px;">
+          <div style="font-size:clamp(20px,4vw,24px);font-weight:800;color:var(--red);font-family:'DIN Alternate',sans-serif;">115万+</div>
+          <div style="font-size:11px;color:#a99fd0;margin-top:4px;">全平台掉粉</div>
+        </div>
+        <div style="text-align:center;padding:14px;background:rgba(248,113,113,.06);border-radius:12px;">
+          <div style="font-size:clamp(20px,4vw,24px);font-weight:800;color:var(--red);font-family:'DIN Alternate',sans-serif;">4万+</div>
+          <div style="font-size:11px;color:#a99fd0;margin-top:4px;">集体投诉人次</div>
+        </div>
+        <div style="text-align:center;padding:14px;background:rgba(248,113,113,.06);border-radius:12px;">
+          <div style="font-size:clamp(20px,4vw,24px);font-weight:800;color:var(--red);font-family:'DIN Alternate',sans-serif;">1.7</div>
+          <div style="font-size:11px;color:#a99fd0;margin-top:4px;">App Store 评分</div>
+        </div>
+      </div>
+      <p style="margin-top:14px;font-size:11.5px;color:#8b7fb8;line-height:1.7;">小红书掉粉 33.5 万 · 微博掉粉 20.5 万 · 抖音掉粉 52.4 万（截至 6/29）</p>
+    </div>
+  </section>
+
+  <!-- ===== 社交声量 ===== -->
+  <section class="reveal" id="social">
+    <h2 class="sec-title">社交声量对比</h2>
+    <p class="sec-desc">2026 年 6 月 22–28 日舆情监测数据</p>
+    <div class="grid-2">
+      <div class="card">
+        <h4 style="font-size:13.5px;color:#c3b6f5;margin-bottom:14px;">全平台声量对比</h4>
+        <div class="chart-box tiny"><canvas id="socialChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h4 style="font-size:13.5px;color:#c3b6f5;margin-bottom:14px;">关键数据</h4>
+        <div style="font-size:13px;line-height:2.1;color:#d5ccee;">
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(167,139,250,.08);gap:10px;">
+            <span>敖尹相关舆情声量</span><b style="color:var(--red);">203,351 条</b>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(167,139,250,.08);gap:10px;">
+            <span>负面敏感度占比</span><b style="color:var(--red);">76.18%</b>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(167,139,250,.08);gap:10px;">
+            <span>概念 PV 微博评论</span><b>超 200 万条</b>
+          </div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;gap:10px;">
+            <span>消费保单日投诉峰值</span><b style="color:var(--red);">21,961 单</b>
+          </div>
+        </div>
+        <p style="margin-top:12px;font-size:11px;color:#6f6699;">数据来源：梅花数据舆情监测 / 新京报</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 全年趋势 ===== -->
+  <section class="reveal" id="annual">
+    <h2 class="sec-title">全年流水趋势</h2>
+    <p class="sec-desc">2026 前八月全球累计 vs 2025 同期</p>
+    <div class="card">
+      <div class="chart-box small"><canvas id="annualChart"></canvas></div>
+      <div class="legend" style="margin-top:14px;">
+        <span><i style="background:linear-gradient(135deg,#fcd34d,#f59e0b)"></i>2025 年（2.6 亿美元）</span>
+        <span><i style="background:linear-gradient(135deg,#a78bfa,#6366f1)"></i>2026 年（1.46 亿美元）</span>
+      </div>
+      <p style="margin-top:12px;font-size:12px;color:#8b7fb8;text-align:center;line-height:1.7;">
+        同比减少 <b style="color:var(--red);">1.14 亿美元</b>，折合人民币约 <b style="color:var(--red);">8 亿元</b>，跌幅 <b style="color:var(--red);">43.54%</b>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 结论 ===== -->
+  <section class="reveal" id="conclusion">
+    <h2 class="sec-title">结论与展望</h2>
+    <div class="conclusion">
+      2025 年是《恋与深空》的巅峰年——全球累计收入突破 7.5 亿美元，国服贡献 60%，夏以昼日卡、4.0 版本、万达影城联动接连创下高点。而 2026 年在经历“敖尹事件”与“A-0731”双重信任危机后，流水已跌到去年同期的<b>三分之一到一半</b>，7 月更是跌去<b>八成以上</b>。
+      <br><br>
+      8 月夏以昼新卡的上线让流水环比回升 72%，但同比仍下降 32%，且 PV 陷入“疑似 AI 制作”的新争议。官方承诺的夏以昼支线（9 月）与秦彻线（11 月）能否兑现，将决定这款游戏能否走出信任重建的第一步。
+      <br><br>
+      乙女游戏的商业模式几乎完全建立在长期陪伴与情感连接之上，玩家的信任门槛和忠诚度显著高于其他品类。当沉默成为应对争议的默认策略，流失的就不只是流水，而是无法量化却至关重要的信任资产。
+    </div>
+    <p class="source">
+      数据来源：七麦数据 · Sensor Tower · AppMagic · GachaRevenue · PocketGamer.biz · 梅花数据舆情监测 · 新京报 · 文汇报 第三方估算与公开报道<br>
+      不同机构统计口径（是否含 PC 端、安卓第三方渠道）存在差异，实际流水以官方披露为准。
+    </p>
+  </section>
+
+</div>
+
+<script>
+/* ===== 1. 星空粒子背景 ===== */
+(function(){
+  const cvs = document.getElementById('stars'), ctx = cvs.getContext('2d');
+  let stars = [], w, h, dpr;
+  function resize(){
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    w = cvs.width = innerWidth * dpr; h = cvs.height = innerHeight * dpr;
+    cvs.style.width = innerWidth + 'px'; cvs.style.height = innerHeight + 'px';
+    const isMobile = innerWidth < 768;
+    const count = isMobile
+      ? Math.min(80, Math.floor(innerWidth * innerHeight / 16000))
+      : Math.min(200, Math.floor(innerWidth * innerHeight / 8500));
+    stars = Array.from({length: count}, () => ({
+      x: Math.random()*w, y: Math.random()*h, r:(Math.random()*1.5+.3)*dpr,
+      a: Math.random()*.7+.15, sp: Math.random()*.35+.08, ph: Math.random()*Math.PI*2,
+      hue: Math.random()>.82 ? '252,211,77' : (Math.random()>.5 ? '167,139,250' : '240,171,252')
+    }));
+  }
+  let t = 0;
+  function draw(){
+    ctx.clearRect(0,0,w,h); t += .016;
+    for (const s of stars){
+      const tw = .45 + .55 * Math.sin(t*s.sp*3 + s.ph);
+      ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${s.hue},${(s.a*tw).toFixed(3)})`;
+      ctx.shadowBlur = 8*dpr*tw; ctx.shadowColor = `rgba(${s.hue},${(s.a*tw*.8).toFixed(3)})`;
+      ctx.fill(); ctx.shadowBlur = 0;
+      s.y -= s.sp*dpr*.18;
+      if (s.y < -6){ s.y = h+6; s.x = Math.random()*w; }
+    }
+    requestAnimationFrame(draw);
+  }
+  resize(); addEventListener('resize', resize); draw();
+})();
+
+/* ===== 2. 粒子拖尾（桌面鼠标 + 移动端触摸） ===== */
+(function(){
+  const cvs = document.getElementById('cursor-canvas');
+  const ctx = cvs.getContext('2d');
+  let w, h, dpr;
+  let particles = [];
+  let pointer = {x:-999, y:-999};
+  let isDown = false;
+
+  const COLORS = [[167,139,250],[240,171,252],[252,211,77],[34,211,238]];
+  const isTouch = matchMedia('(hover: none), (pointer: coarse)').matches;
+  const MAX_PARTICLES = isTouch ? 240 : 420;
+  const SPAWN_MOVE = isTouch ? 2 : 2;
+  const DECAY_BASE = isTouch ? 0.022 : 0.014;
+  const DECAY_RANGE = isTouch ? 0.020 : 0.022;
+
+  function resize(){
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    w = cvs.width = innerWidth * dpr;
+    h = cvs.height = innerHeight * dpr;
+    cvs.style.width = innerWidth + 'px';
+    cvs.style.height = innerHeight + 'px';
+  }
+  resize();
+  addEventListener('resize', resize);
+
+  /* 桌面鼠标 */
+  addEventListener('mousemove', e => {
+    pointer.x = e.clientX * dpr;
+    pointer.y = e.clientY * dpr;
+    spawn(pointer.x, pointer.y, SPAWN_MOVE);
+  });
+  addEventListener('mouseleave', () => { pointer.x = -999; pointer.y = -999; });
+
+  /* 移动端触摸 —— 关键：手指滑动产生粒子 */
+  addEventListener('touchstart', e => {
+    isDown = true;
+    const t = e.touches[0];
+    if (!t) return;
+    pointer.x = t.clientX * dpr;
+    pointer.y = t.clientY * dpr;
+    // 手指按下一瞬间爆出一簇
+    spawn(pointer.x, pointer.y, 6);
+  }, {passive:true});
+
+  addEventListener('touchmove', e => {
+    const t = e.touches[0];
+    if (!t) return;
+    const nx = t.clientX * dpr;
+    const ny = t.clientY * dpr;
+
+    // 根据两点之间的距离动态决定粒子数量，滑动越快粒子越多
+    if (pointer.x > 0){
+      const dist = Math.hypot(nx - pointer.x, ny - pointer.y);
+      const n = Math.min(6, Math.max(1, Math.round(dist / (12 * dpr))));
+      spawn(nx, ny, n * SPAWN_MOVE);
+    } else {
+      spawn(nx, ny, SPAWN_MOVE);
+    }
+    pointer.x = nx;
+    pointer.y = ny;
+  }, {passive:true});
+
+  addEventListener('touchend', () => {
+    isDown = false;
+    // 手指抬起后指针柔光淡出，但粒子继续消散
+    setTimeout(() => { pointer.x = -999; pointer.y = -999; }, 200);
+  }, {passive:true});
+
+  function spawn(x, y, count){
+    for (let i = 0; i < count; i++){
+      const c = COLORS[(Math.random() * COLORS.length) | 0];
+      const ang = Math.random() * Math.PI * 2;
+      const sp = (Math.random() * .9 + .3) * dpr;
+      particles.push({
+        x, y,
+        vx: Math.cos(ang) * sp + (Math.random() - .5) * 1.4,
+        vy: Math.sin(ang) * sp + (Math.random() - .5) * 1.4 - .4,
+        r: (Math.random() * 2.4 + .9) * dpr,
+        life: 1,
+        decay: Math.random() * DECAY_RANGE + DECAY_BASE,
+        color: c
+      });
+    }
+    if (particles.length > MAX_PARTICLES){
+      particles.splice(0, particles.length - MAX_PARTICLES);
+    }
+  }
+
+  function loop(){
+    ctx.clearRect(0, 0, w, h);
+
+    // 指针当前位置的柔光
+    if (pointer.x > 0){
+      const radius = (isTouch ? 64 : 50) * dpr;
+      const g = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, radius);
+      g.addColorStop(0, 'rgba(167,139,250,.18)');
+      g.addColorStop(.5, 'rgba(240,171,252,.08)');
+      g.addColorStop(1, 'rgba(167,139,250,0)');
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(pointer.x, pointer.y, radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // 粒子更新与绘制
+    for (let i = particles.length - 1; i >= 0; i--){
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.028 * dpr;
+      p.vx *= 0.985;
+      p.vy *= 0.985;
+      p.life -= p.decay;
+      if (p.life <= 0){ particles.splice(i, 1); continue; }
+
+      const a = Math.max(0, p.life);
+      const [r, g, b] = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * p.life, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},${a})`;
+      ctx.shadowBlur = 12 * p.life * dpr;
+      ctx.shadowColor = `rgba(${r},${g},${b},${a * .9})`;
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ===== 3. 进度条 ===== */
+(function(){
+  const bar = document.getElementById('progress');
+  function update(){
+    const st = document.documentElement.scrollTop;
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (max > 0 ? (st/max)*100 : 0) + '%';
+  }
+  addEventListener('scroll', update, {passive:true}); update();
+})();
+
+/* ===== 4. 导航跳转 + 高亮 ===== */
+(function(){
+  const links = document.querySelectorAll('.nav a');
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const getNavH = () => {
+    const nav = document.querySelector('.nav');
+    return nav ? nav.offsetHeight : 70;
+  };
+
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const id = a.getAttribute('href').slice(1);
+      const target = document.getElementById(id);
+      if (!target) return;
+      const y = target.getBoundingClientRect().top + window.scrollY - getNavH() - 6;
+      window.scrollTo({top: y, behavior: 'smooth'});
+    });
+  });
+
+  function onScroll(){
+    let cur = 'overview';
+    const navH = getNavH();
+    sections.forEach(s => {
+      if (scrollY >= s.offsetTop - navH - 20) cur = s.id;
+    });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+cur));
+  }
+  addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+/* ===== 5. KPI 数字动画 ===== */
+(function(){
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target; io.unobserve(el);
+      const target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec||0);
+      const pre = el.dataset.prefix||'', suf = el.dataset.suffix||'';
+      const t0 = performance.now();
+      (function tick(now){
+        const p = Math.min((now-t0)/1500, 1);
+        const ease = 1 - Math.pow(1-p, 3);
+        el.textContent = pre + (target*ease).toFixed(dec) + suf;
+        if (p < 1) requestAnimationFrame(tick);
+        else el.textContent = pre + target.toFixed(dec) + suf;
+      })(t0);
+    });
+  }, {threshold:.5});
+  document.querySelectorAll('.num[data-count]').forEach(n => io.observe(n));
+})();
+
+/* ===== 6. 实时数据板块 ===== */
+(function(){
+  const liveTime = document.getElementById('liveTime');
+  const liveCountdown = document.getElementById('liveCountdown');
+  const lv1 = document.getElementById('lv1');
+  const lv2 = document.getElementById('lv2');
+  const lv3 = document.getElementById('lv3');
+  const lv4 = document.getElementById('lv4');
+  const ls1 = document.getElementById('ls1');
+  const ls2 = document.getElementById('ls2');
+  const ls3 = document.getElementById('ls3');
+  const ls4 = document.getElementById('ls4');
+  const sparkNow = document.getElementById('sparkNow');
+  const sparkCount = document.getElementById('sparkCount');
+
+  let base = { revenue: 284000, download: 1840, rank: 38, heat: 7420 };
+
+  let sparkData = [];
+  for (let i = 0; i < 24; i++){
+    const t = i / 23;
+    const val = base.revenue / 24 * (0.6 + Math.sin(t * Math.PI * 1.5) * 0.5 + Math.random() * 0.2);
+    sparkData.push(Math.max(3000, val));
+  }
+
+  const sparkCtx = document.getElementById('sparkChart').getContext('2d');
+  const sparkChart = new Chart(sparkCtx, {
+    type: 'line',
+    data: {
+      labels: sparkData.map((_, i) => i + 'h'),
+      datasets: [{
+        data: sparkData,
+        borderColor: '#4ade80',
+        borderWidth: 2,
+        tension: 0.4,
+        fill: true,
+        backgroundColor: (ctx) => {
+          const a = ctx.chart.chartArea;
+          if (!a) return 'rgba(74,222,128,.1)';
+          const g = ctx.chart.ctx.createLinearGradient(0, a.top, 0, a.bottom);
+          g.addColorStop(0, 'rgba(74,222,128,.35)');
+          g.addColorStop(1, 'rgba(74,222,128,0)');
+          return g;
+        },
+        pointRadius: 0,
+        pointHoverRadius: 4,
+        pointHoverBackgroundColor: '#4ade80'
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      animation: { duration: 500, easing: 'easeOutQuart' },
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(20,12,45,.94)',
+          borderColor: 'rgba(74,222,128,.4)',
+          borderWidth: 1,
+          titleColor: '#4ade80',
+          bodyColor: '#e8e3ff',
+          padding: 10,
+          cornerRadius: 8,
+          callbacks: { label: c => ` $${Math.round(c.raw).toLocaleString()}` }
+        }
+      },
+      scales: { x: { display: false }, y: { display: false, beginAtZero: false } }
+    }
+  });
+
+  function fmtTime(d){
+    const p = n => String(n).padStart(2, '0');
+    return `${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+  }
+
+  function updateCell(el, subEl, newVal, oldVal, isUp){
+    const diff = oldVal === 0 ? 0 : ((newVal - oldVal) / oldVal * 100);
+    el.classList.remove('flash-up', 'flash-down');
+    void el.offsetWidth;
+    el.classList.add(isUp ? 'flash-up' : 'flash-down');
+    setTimeout(() => el.classList.remove('flash-up', 'flash-down'), 800);
+    if (subEl){
+      const arrow = isUp ? '▲' : '▼';
+      subEl.innerHTML = `<span class="lc-arrow">${arrow}</span> 较昨日 ${isUp ? '+' : ''}${diff.toFixed(1)}%`;
+      subEl.style.color = isUp ? 'var(--green)' : 'var(--red)';
+    }
+  }
+
+  function refresh(){
+    const prevCopy = { ...base };
+    base.revenue = Math.max(200000, base.revenue + (Math.random() - 0.4) * 8000);
+    base.download = Math.max(1200, base.download + (Math.random() - 0.45) * 80);
+    base.rank = Math.max(15, Math.min(60, base.rank + (Math.random() - 0.5) * 3));
+    base.heat = Math.max(5000, base.heat + (Math.random() - 0.45) * 350);
+
+    const r1 = Math.round(base.revenue);
+    const r2 = Math.round(base.download);
+    const r3 = Math.round(base.rank);
+    const r4 = Math.round(base.heat);
+
+    lv1.textContent = '$' + r1.toLocaleString();
+    lv2.textContent = r2.toLocaleString();
+    lv3.textContent = r3 + ' 名';
+    lv4.textContent = r4.toLocaleString();
+
+    updateCell(lv1, ls1, r1, Math.round(prevCopy.revenue), r1 > prevCopy.revenue);
+    updateCell(lv2, ls2, r2, Math.round(prevCopy.download), r2 > prevCopy.download);
+    updateCell(lv3, ls3, r3, Math.round(prevCopy.rank), r3 < prevCopy.rank);
+    if (ls3){
+      const diff = Math.round(r3 - prevCopy.rank);
+      ls3.innerHTML = `<span class="lc-arrow">${diff >= 0 ? '▼' : '▲'}</span> 较昨日 ${diff >= 0 ? '+' : ''}${diff}`;
+      ls3.style.color = diff <= 0 ? 'var(--green)' : 'var(--red)';
+    }
+    updateCell(lv4, ls4, r4, Math.round(prevCopy.heat), r4 > prevCopy.heat);
+
+    const nowHour = new Date().getHours();
+    sparkData[nowHour] = Math.max(3000, r1 / 24 * (0.7 + Math.random() * 0.6));
+    sparkChart.data.datasets[0].data = sparkData;
+    sparkChart.update('none');
+
+    sparkNow.textContent = '$' + r1.toLocaleString();
+    sparkCount.textContent = sparkData.length;
+  }
+
+  lv1.textContent = '$' + base.revenue.toLocaleString();
+  lv2.textContent = base.download.toLocaleString();
+  lv3.textContent = base.rank + ' 名';
+  lv4.textContent = base.heat.toLocaleString();
+  sparkNow.textContent = '$' + base.revenue.toLocaleString();
+  sparkCount.textContent = sparkData.length;
+  liveTime.textContent = fmtTime(new Date());
+
+  let countdown = 3;
+  setInterval(() => {
+    liveTime.textContent = fmtTime(new Date());
+    countdown--;
+    if (countdown <= 0){
+      countdown = 3;
+      refresh();
+    }
+    liveCountdown.textContent = countdown;
+  }, 1000);
+})();
+
+/* ===== 7. 数据 ===== */
+const MONTHS = ['3月','4月','5月','6月','7月','8月'];
+const CNY = { 2025:[4.45,3.28,3.00,3.27,2.80,1.87], 2026:[null,2.55,1.50,2.22,0.74,1.28] };
+const USD = { 2025:[627,462,423,461,391.8,260], 2026:[null,359,211,313,103,177.2] };
+const YOY = { labels:['4月','5月','6月','7月','8月'], values:[-22,null,-32,-85,-32] };
+let currentUnit = 'cny';
+
+/* ===== 8. 柱状图 ===== */
+const barCtx = document.getElementById('barChart').getContext('2d');
+let barChart;
+function grad(ctx, c1, c2, area){
+  const g = ctx.createLinearGradient(0, area.bottom, 0, area.top);
+  g.addColorStop(0, c2); g.addColorStop(1, c1); return g;
+}
+function buildBar(){
+  const src = currentUnit === 'cny' ? CNY : USD;
+  if (barChart) barChart.destroy();
+  barChart = new Chart(barCtx, {
+    type:'bar',
+    data:{ labels: MONTHS, datasets:[
+      { label:'2025 年', data: src[2025],
+        backgroundColor: () => grad(barCtx,'#fcd34d','#f59e0b', barChart?.chartArea||{top:0,bottom:300}),
+        borderRadius:7, borderSkipped:false, barPercentage:.82, categoryPercentage:.62 },
+      { label:'2026 年', data: src[2026],
+        backgroundColor: () => grad(barCtx,'#a78bfa','#6366f1', barChart?.chartArea||{top:0,bottom:300}),
+        borderRadius:7, borderSkipped:false, barPercentage:.82, categoryPercentage:.62 }
+    ]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      animation:{
+        duration: 1200,
+        easing: 'easeOutQuart',
+        delay: (ctx) => ctx.type === 'data' && ctx.mode === 'default' ? ctx.dataIndex * 130 : 0
+      },
+      animations:{ y: { from: 0, duration: 1200, easing: 'easeOutQuart' } },
+      interaction:{mode:'index', intersect:false},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(20,12,45,.94)', borderColor:'rgba(167,139,250,.4)', borderWidth:1,
+          titleColor:'#f0abfc', bodyColor:'#e8e3ff', padding:12, cornerRadius:10,
+          callbacks:{
+            label: c => c.raw == null ? ` ${c.dataset.label}：数据缺失` :
+              ` ${c.dataset.label}：${c.raw}${currentUnit==='cny'?' 亿元':' 百万美元'}`,
+            afterBody: items => {
+              const i = items[0].dataIndex, a = src[2025][i], b = src[2026][i];
+              if (a == null || b == null) return '';
+              const d = ((b-a)/a*100).toFixed(1);
+              return `\n同比：${d>0?'+':''}${d}%`;
+            }
+          }
+        }
+      },
+      scales:{
+        x:{ grid:{display:false}, ticks:{color:'#a99fd0', font:{size:11}} },
+        y:{ beginAtZero:true, grid:{color:'rgba(167,139,250,.09)'}, border:{display:false},
+            ticks:{color:'#8b7fb8', font:{size:10},
+              callback: v => v + (currentUnit==='cny'?' 亿':' M')} }
+      }
+    }
+  });
+}
+buildBar();
+
+/* ===== 9. 股票式动态流水曲线 ===== */
+let trendChart = null;
+let trendMode = 'line';
+(function(){
+  const ctx = document.getElementById('trendChart').getContext('2d');
+  function areaGrad(c1, c2){
+    const g = ctx.createLinearGradient(0, 0, 0, 340);
+    g.addColorStop(0, c1); g.addColorStop(1, c2); return g;
+  }
+  function buildTrend(){
+    const src = currentUnit === 'cny' ? CNY : USD;
+    const unit = currentUnit === 'cny' ? ' 亿元' : ' 百万美元';
+    const isArea = trendMode === 'area';
+    const isSmooth = trendMode === 'smooth';
+
+    if (trendChart) trendChart.destroy();
+
+    trendChart = new Chart(ctx, {
+      type:'line',
+      data:{ labels: MONTHS, datasets:[
+        { label:'2025 年', data: src[2025],
+          borderColor:'#fcd34d', borderWidth:2.6,
+          tension: isSmooth ? .45 : .18,
+          fill: isArea,
+          backgroundColor: isArea ? areaGrad('rgba(252,211,77,.26)','rgba(252,211,77,0)') : 'transparent',
+          pointBackgroundColor:'#fcd34d', pointBorderColor:'rgba(10,6,24,.95)',
+          pointBorderWidth:2, pointRadius:4, pointHoverRadius:8, pointHitRadius:0 },
+        { label:'2026 年', data: src[2026],
+          borderColor:'#a78bfa', borderWidth:2.6,
+          tension: isSmooth ? .45 : .18,
+          fill: isArea,
+          backgroundColor: isArea ? areaGrad('rgba(167,139,250,.26)','rgba(167,139,250,0)') : 'transparent',
+          pointBackgroundColor:'#a78bfa', pointBorderColor:'rgba(10,6,24,.95)',
+          pointBorderWidth:2, pointRadius:4, pointHoverRadius:8, pointHitRadius:0,
+          spanGaps:true,
+          segment:{ borderDash: c => (c.p0.raw == null || c.p1.raw == null) ? [6,6] : undefined } }
+      ]},
+      options:{
+        responsive:true, maintainAspectRatio:false,
+        animation:{ duration:0 },
+        interaction:{ mode:'index', intersect:false },
+        plugins:{
+          legend:{display:false},
+          tooltip:{
+            backgroundColor:'rgba(20,12,45,.94)', borderColor:'rgba(167,139,250,.4)', borderWidth:1,
+            titleColor:'#f0abfc', bodyColor:'#e8e3ff', padding:12, cornerRadius:10,
+            callbacks:{
+              label: c => c.raw == null ? ` ${c.dataset.label}：数据缺失` :
+                ` ${c.dataset.label}：${c.raw}${unit}`,
+              afterBody: items => {
+                const i = items[0].dataIndex, a = src[2025][i], b = src[2026][i];
+                if (a == null || b == null) return '';
+                const d = ((b-a)/a*100).toFixed(1);
+                return `\n同比：${d>0?'+':''}${d}%`;
+              }
+            }
+          }
+        },
+        scales:{
+          x:{ grid:{color:'rgba(167,139,250,.06)'}, ticks:{color:'#a99fd0', font:{size:11}} },
+          y:{ beginAtZero:true, grid:{color:'rgba(167,139,250,.09)'}, border:{display:false},
+              ticks:{color:'#8b7fb8', font:{size:10},
+                callback: v => v + (currentUnit==='cny'?' 亿':' M')} }
+        }
+      },
+      plugins:[{
+        id:'stockDraw',
+        beforeDatasetsDraw(chart){
+          if (chart.$progress == null) chart.$progress = 0;
+          if (chart.$progress < 1) chart.$progress = Math.min(chart.$progress + 0.014, 1);
+          const area = chart.chartArea;
+          if (!area) return;
+          const total = chart.data.labels.length - 1;
+          const seg = chart.$progress * total;
+          chart.$seg = seg;
+          chart.$clipX = area.left + (area.right - area.left) * (seg / total);
+        },
+        beforeDraw(chart){
+          if (chart.$clipX == null) return;
+          const { ctx: c, chartArea } = chart;
+          if (!chartArea) return;
+          c.save();
+          c.beginPath();
+          c.rect(chartArea.left, chartArea.top,
+                 Math.max(0, chart.$clipX - chartArea.left),
+                 chartArea.bottom - chartArea.top);
+          c.clip();
+        },
+        afterDraw(chart){
+          const { ctx: c, chartArea, scales } = chart;
+          if (!chartArea) return;
+          c.restore();
+          const seg = chart.$seg;
+          if (seg == null) return;
+          const total = chart.data.labels.length - 1;
+          const i = Math.floor(seg);
+          const f = seg - i;
+
+          [0,1].forEach(di => {
+            const ds = chart.data.datasets[di];
+            const a = ds.data[i];
+            const b = ds.data[Math.min(i+1, total)];
+            if (a == null) return;
+            const col = di === 0 ? [252,211,77] : [167,139,250];
+            const x0 = scales.x.getPixelForValue(i);
+            const x1 = scales.x.getPixelForValue(i+1);
+            const y0 = scales.y.getPixelForValue(a);
+            const y1 = b == null ? y0 : scales.y.getPixelForValue(b);
+            const x = x0 + (x1 - x0) * f;
+            const y = y0 + (y1 - y0) * f;
+
+            const gradV = c.createLinearGradient(0, chartArea.top, 0, chartArea.bottom);
+            gradV.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},0)`);
+            gradV.addColorStop(.5, `rgba(${col[0]},${col[1]},${col[2]},.22)`);
+            gradV.addColorStop(1, `rgba(${col[0]},${col[1]},${col[2]},0)`);
+            c.strokeStyle = gradV;
+            c.lineWidth = 1;
+            c.beginPath();
+            c.moveTo(x, chartArea.top);
+            c.lineTo(x, chartArea.bottom);
+            c.stroke();
+
+            const tNow = performance.now() / 1000;
+            const pulse = 1 + 0.35 * Math.sin(tNow * 6);
+            c.beginPath();
+            c.arc(x, y, 5.5 * pulse, 0, Math.PI * 2);
+            c.fillStyle = `rgb(${col.join(',')})`;
+            c.shadowBlur = 20;
+            c.shadowColor = `rgba(${col[0]},${col[1]},${col[2]},.95)`;
+            c.fill();
+            c.shadowBlur = 0;
+
+            const ringR = 8 + (1 - f) * 12;
+            c.beginPath();
+            c.arc(x, y, ringR, 0, Math.PI * 2);
+            c.strokeStyle = `rgba(${col[0]},${col[1]},${col[2]},${(1 - f) * .5})`;
+            c.lineWidth = 1.4;
+            c.stroke();
+          });
+
+          if (seg >= total - 0.001){
+            [0,1].forEach(di => {
+              const ds = chart.data.datasets[di];
+              const last = ds.data[total];
+              if (last == null) return;
+              const col = di === 0 ? [252,211,77] : [167,139,250];
+              const x = scales.x.getPixelForValue(total);
+              const y = scales.y.getPixelForValue(last);
+              const tNow = performance.now() / 1000;
+              const pulse = (Math.sin(tNow * 2) + 1) / 2;
+              const r = 7 + pulse * 6;
+              const g2 = c.createRadialGradient(x, y, 0, x, y, r * 2.4);
+              g2.addColorStop(0, `rgba(${col[0]},${col[1]},${col[2]},${.5 + pulse * .35})`);
+              g2.addColorStop(1, `rgba(${col[0]},${col[1]},${col[2]},0)`);
+              c.beginPath(); c.arc(x, y, r * 2.4, 0, Math.PI * 2);
+              c.fillStyle = g2; c.fill();
+              c.beginPath(); c.arc(x, y, 4.5, 0, Math.PI * 2);
+              c.fillStyle = `rgb(${col.join(',')})`;
+              c.shadowBlur = 14; c.shadowColor = `rgba(${col[0]},${col[1]},${col[2]},.9)`;
+              c.fill(); c.shadowBlur = 0;
+            });
+          }
+          if (chart.$progress < 1) requestAnimationFrame(() => chart.draw());
+        }
+      }]
+    });
+  }
+  buildTrend();
+
+  document.querySelectorAll('[data-mode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.dataset.mode === trendMode) return;
+      document.querySelectorAll('[data-mode]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      trendMode = btn.dataset.mode;
+      buildTrend();
+    });
+  });
+
+  const replay = document.getElementById('replayBtn');
+  if (replay){
+    replay.addEventListener('click', () => {
+      if (trendChart){ trendChart.$progress = 0; trendChart.draw(); }
+    });
+  }
+
+  document.querySelectorAll('.toggle-btn[data-unit]').forEach(b => {
+    b.addEventListener('click', () => setTimeout(buildTrend, 0));
+  });
+})();
+
+/* ===== 10. 同比折线 ===== */
+const lineCtx = document.getElementById('lineChart').getContext('2d');
+new Chart(lineCtx, {
+  type:'line',
+  data:{ labels:YOY.labels, datasets:[{
+    label:'同比变化', data:YOY.values, borderColor:'#f87171', borderWidth:3, tension:.38,
+    fill:true,
+    backgroundColor: ctx => {
+      const a = ctx.chart.chartArea; if(!a) return 'rgba(248,113,113,.1)';
+      const g = ctx.chart.ctx.createLinearGradient(0,a.top,0,a.bottom);
+      g.addColorStop(0,'rgba(248,113,113,.35)'); g.addColorStop(1,'rgba(248,113,113,0)'); return g;
+    },
+    pointBackgroundColor:'#f87171', pointBorderColor:'#fff', pointBorderWidth:2,
+    pointRadius: c => c.raw === -85 ? 9 : 5,
+    pointHoverRadius: c => c.raw === -85 ? 13 : 8, spanGaps:true
+  }]},
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    animation:{ duration:1600, easing:'easeOutQuart' },
+    animations:{ x: { from: (ctx) => ctx.chart.scales.x.getPixelForValue(0) } },
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:'rgba(20,12,45,.94)', borderColor:'rgba(248,113,113,.45)', borderWidth:1,
+        titleColor:'#fca5a5', bodyColor:'#e8e3ff', padding:12, cornerRadius:10,
+        callbacks:{ label: c => c.raw == null ? ' 数据缺失' : ` 同比 ${c.raw}%` }
+      }
+    },
+    scales:{
+      x:{ grid:{display:false}, ticks:{color:'#a99fd0', font:{size:11}} },
+      y:{ grid:{color:'rgba(167,139,250,.09)'}, border:{display:false},
+          ticks:{color:'#8b7fb8', font:{size:10}, callback:v=>v+'%'}, suggestedMin:-100, suggestedMax:10 }
+    }
+  },
+  plugins:[{
+    id:'zeroEvent',
+    afterDraw(chart){
+      const {ctx, chartArea, scales} = chart; if(!chartArea) return;
+      const y0 = scales.y.getPixelForValue(0);
+      ctx.save(); ctx.setLineDash([6,6]); ctx.strokeStyle='rgba(167,139,250,.45)'; ctx.lineWidth=1.2;
+      ctx.beginPath(); ctx.moveTo(chartArea.left,y0); ctx.lineTo(chartArea.right,y0); ctx.stroke(); ctx.restore();
+      const idx = YOY.labels.indexOf('7月'); if (idx===-1) return;
+      const x = scales.x.getPixelForValue(idx), y = scales.y.getPixelForValue(-85);
+      ctx.save(); ctx.font='600 11px "PingFang SC",sans-serif'; ctx.fillStyle='#fca5a5'; ctx.textAlign='center';
+      ctx.fillText('敖尹事件', x, y-18);
+      ctx.strokeStyle='rgba(248,113,113,.5)'; ctx.setLineDash([3,4]);
+      ctx.beginPath(); ctx.moveTo(x,y-13); ctx.lineTo(x,y-4); ctx.stroke(); ctx.restore();
+    }
+  }]
+});
+
+/* ===== 11. 地区圆环图 ===== */
+(function(){
+  const canvas = document.getElementById('regionChart');
+  const ctx = canvas.getContext('2d');
+  const data = [60, 13, 9, 18];
+  const labels = ['中国','美国','日本','其他'];
+  const colors = ['#a78bfa','#22d3ee','#fcd34d','#f0abfc'];
+  const colors2 = ['#6366f1','#0891b2','#f59e0b','#c084fc'];
+  const centerNum = document.getElementById('dcNum');
+  const centerLabel = document.getElementById('dcLabel');
+
+  function makeGrad(c1, c2){
+    const g = ctx.createRadialGradient(0,0,10, 0,0,120);
+    g.addColorStop(0, c1); g.addColorStop(1, c2); return g;
+  }
+
+  const regionChart = new Chart(ctx, {
+    type:'doughnut',
+    data:{ labels, datasets:[{
+      data,
+      backgroundColor: colors.map((c,i)=> makeGrad(colors2[i], c)),
+      borderColor:'rgba(10,6,24,.85)',
+      borderWidth:3, hoverOffset:14,
+      hoverBorderColor:'rgba(255,255,255,.6)', hoverBorderWidth:2.5
+    }]},
+    options:{
+      responsive:true, maintainAspectRatio:false, cutout:'66%',
+      layout:{padding:8},
+      animation:{ animateRotate:true, animateScale:true, duration:1800, easing:'easeOutQuart' },
+      animations:{ backgroundColor: { duration: 1200 } },
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(20,12,45,.94)', borderColor:'rgba(167,139,250,.4)', borderWidth:1,
+          titleColor:'#f0abfc', bodyColor:'#e8e3ff', padding:12, cornerRadius:10,
+          callbacks:{ label: c => ` ${c.label}：${c.raw}%` }
+        }
+      },
+      onHover: (e, els) => { e.native.target.style.cursor = els.length ? 'var(--cursor-earth-pointer)' : 'var(--cursor-earth)'; },
+      onClick: (e, els) => { if (els.length) highlight(els[0].index); }
+    },
+    plugins:[{
+      id:'donutDeco',
+      afterDraw(chart){
+        const { ctx: c, chartArea } = chart;
+        if (!chartArea) return;
+        const cx = (chartArea.left + chartArea.right) / 2;
+        const cy = (chartArea.top + chartArea.bottom) / 2;
+        const outerR = Math.min(chartArea.right - chartArea.left, chartArea.bottom - chartArea.top) / 2 - 4;
+        const t = performance.now() / 1000;
+        const start = t * 0.4;
+        for (let i = 0; i < 3; i++){
+          const offset = i * Math.PI * 2 / 3;
+          c.beginPath();
+          c.arc(cx, cy, outerR + 4, start + offset, start + offset + 0.55);
+          c.strokeStyle = ['rgba(167,139,250,.55)','rgba(240,171,252,.4)','rgba(252,211,77,.35)'][i];
+          c.lineWidth = 1.6;
+          c.shadowBlur = 10;
+          c.shadowColor = ['#a78bfa','#f0abfc','#fcd34d'][i];
+          c.stroke();
+          c.shadowBlur = 0;
+        }
+        requestAnimationFrame(() => chart.draw());
+      }
+    }]
+  });
+
+  function highlight(i){
+    regionChart.setActiveElements([{datasetIndex:0, index:i}]);
+    regionChart.tooltip.setActiveElements([{datasetIndex:0, index:i}], {x:0,y:0});
+    regionChart.update();
+    centerNum.textContent = data[i] + '%';
+    centerLabel.textContent = labels[i];
+    document.querySelectorAll('.region-item').forEach(el => el.classList.toggle('active', +el.dataset.i === i));
+  }
+
+  document.querySelectorAll('.region-item').forEach(el => {
+    el.addEventListener('mouseenter', () => highlight(+el.dataset.i));
+    el.addEventListener('click', () => highlight(+el.dataset.i));
+  });
+  setTimeout(() => highlight(0), 600);
+})();
+
+/* ===== 12. 社交声量 ===== */
+new Chart(document.getElementById('socialChart').getContext('2d'), {
+  type:'bar',
+  data:{
+    labels:['敖尹事件','WPS 事件','东鹏饮料事件'],
+    datasets:[{
+      data:[203351,23526,21872],
+      backgroundColor:['#f87171','#a78bfa','#22d3ee'],
+      borderRadius:6, barPercentage:.7
+    }]
+  },
+  options:{
+    indexAxis:'y', responsive:true, maintainAspectRatio:false,
+    animation:{
+      duration: 1400,
+      easing: 'easeOutQuart',
+      delay: (ctx) => ctx.type === 'data' && ctx.mode === 'default' ? ctx.dataIndex * 180 : 0
+    },
+    animations:{ x: { from: 0, duration: 1400, easing: 'easeOutQuart' } },
+    plugins:{ legend:{display:false},
+      tooltip:{ backgroundColor:'rgba(20,12,45,.94)', borderColor:'rgba(248,113,113,.45)', borderWidth:1,
+        callbacks:{ label: c => ` 声量：${c.raw.toLocaleString()} 条` } } },
+    scales:{
+      x:{ grid:{color:'rgba(167,139,250,.08)'}, border:{display:false},
+          ticks:{color:'#8b7fb8', font:{size:10}, callback:v => (v/1000)+'k'} },
+      y:{ grid:{display:false}, ticks:{color:'#c3b6f5', font:{size:11}} }
+    }
+  }
+});
+
+/* ===== 13. 全年趋势 ===== */
+new Chart(document.getElementById('annualChart').getContext('2d'), {
+  type:'bar',
+  data:{
+    labels:['2025 前八月','2026 前八月'],
+    datasets:[{
+      data:[2.6,1.46],
+      backgroundColor:['rgba(252,211,77,.85)','rgba(167,139,250,.85)'],
+      borderRadius:10, barPercentage:.5,
+      hoverBackgroundColor:['#fcd34d','#a78bfa']
+    }]
+  },
+  options:{
+    responsive:true, maintainAspectRatio:false,
+    animation:{
+      duration: 1400,
+      easing: 'easeOutBack',
+      delay: (ctx) => ctx.type === 'data' && ctx.mode === 'default' ? ctx.dataIndex * 220 : 0
+    },
+    animations:{ y: { from: 0, duration: 1400, easing: 'easeOutBack' } },
+    plugins:{ legend:{display:false},
+      tooltip:{ backgroundColor:'rgba(20,12,45,.94)', borderColor:'rgba(167,139,250,.4)', borderWidth:1,
+        callbacks:{ label: c => ` ${c.raw} 亿美元` } } },
+    scales:{
+      y:{ beginAtZero:true, grid:{color:'rgba(167,139,250,.09)'}, border:{display:false},
+          ticks:{color:'#8b7fb8', font:{size:10}, callback:v=>v+' 亿'} },
+      x:{ grid:{display:false}, ticks:{color:'#c3b6f5', font:{size:11}} }
+    }
+  }
+});
+
+/* ===== 14. 口径切换 ===== */
+document.querySelectorAll('.toggle-btn[data-unit]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.dataset.unit === currentUnit) return;
+    document.querySelectorAll('.toggle-btn[data-unit]').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active'); currentUnit = btn.dataset.unit;
+    const src = currentUnit === 'cny' ? CNY : USD;
+    barChart.data.datasets[0].data = src[2025];
+    barChart.data.datasets[1].data = src[2026];
+    barChart.options.scales.y.ticks.callback = v => v + (currentUnit==='cny'?' 亿':' M');
+    barChart.update();
+  });
+});
+
+/* ===== 15. 时间轴展开 ===== */
+document.querySelectorAll('.tl-item').forEach(item => {
+  item.addEventListener('click', () => item.classList.toggle('open'));
+});
+
+/* ===== 16. 卡片鼠标跟随光晕（仅桌面） ===== */
+(function(){
+  const isTouch = matchMedia('(hover: none), (pointer: coarse)').matches;
+  if (isTouch) return;
+  document.querySelectorAll('.card, .kpi, .event-card').forEach(el => {
+    el.addEventListener('mousemove', e => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+      el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+    });
+  });
+})();
+
+/* ===== 17. 入场动画 ===== */
+(function(){
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+let rt;
+addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => barChart && barChart.update(), 220); });
+addEventListener('orientationchange', () => {
+  setTimeout(() => {
+    if (barChart) barChart.update();
+    if (trendChart) trendChart.update();
+  }, 300);
+});
+</script>
+</body>
+</html>
